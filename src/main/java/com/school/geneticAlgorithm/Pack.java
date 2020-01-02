@@ -6,7 +6,7 @@ import java.util.Random;
 
 public class Pack {
 
-    public static final String[] ITEMS = new String[] {"kort", "sokker", "solcreme", "sukker", "pung", "sandwich", "solbriller", "kompas", "banan", "vandtætte_overtøj", "vandtætte_bukser", "vand", "ost", "æble", "kamera", "telt", "håndklæde", "dåsemad", "tshirt", "paraply", "bog", "bukser", "øl", "notesbog", "spisepinde"};
+    public static final String[] ITEMS = new String[] {"kort", "sokker", "solcreme", "sukker", "pung", "sandwich", "solbriller", "kompas", "banan", "vandtætte overtøj", "vandtætte bukser", "vand", "ost", "æble", "kamera", "telt", "håndklæde", "dåsemad", "tshirt", "paraply", "bog", "bukser", "øl", "notesbog", "spisepinde"};
     public static final int[] WEIGHTS = new int[]{90, 40, 110, 150, 220, 500, 70, 130, 270, 430, 420, 1530, 230, 390, 320, 2000, 180, 680, 240, 730, 300, 480, 520, 900, 100};
     public static final int[] PRICES = new int[]{150, 50, 70, 60, 80, 160, 20, 35, 60, 75, 70, 200, 30, 40, 30, 150, 12, 45, 15, 40, 10, 10, 10, 1, 100};
 
@@ -82,6 +82,19 @@ public class Pack {
             }
         }
         return itemsArray.toArray(new String[0]);
+    }
+
+    public String getItemsAsString() {
+        StringBuilder stringBuilder = new StringBuilder();
+        String[] items = getItems();
+        for (int i=0; i<items.length; i++) {
+            if ((i+1) % 3 == 0) {
+                stringBuilder.append(items[i]).append("\n");
+            } else {
+                stringBuilder.append(items[i]).append(", ");
+            }
+        }
+        return stringBuilder.toString();
     }
 
     public Double getTotalValue() {
