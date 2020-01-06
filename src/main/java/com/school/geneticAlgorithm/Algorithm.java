@@ -8,9 +8,9 @@ import java.util.stream.Collectors;
 
 public class Algorithm extends PApplet {
     final static int POPULATION_SIZE = 50;
-    final static int SPEED = 10;
+    final static int SPEED = 50;
     final static int STOP_THRESHOLD = 0;
-    final static int RECENT_PACKS_SIZE = SPEED*10;
+    final static int RECENT_PACKS_SIZE = 100;
 
     PFont font = null;
     PFont fontBold = null;
@@ -84,10 +84,10 @@ public class Algorithm extends PApplet {
     }
 
     void drawGen() {
-        background(255);
-        fill(0);
         if (currentBestpack == null)
             return;
+        background(255);
+        fill(0);
         textFont(fontBold, 25);
         text("Current best backpack", 10, 30);
 
